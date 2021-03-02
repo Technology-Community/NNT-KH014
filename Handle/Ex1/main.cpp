@@ -65,6 +65,55 @@ void findLastPositiveNumber(int n, int arr[])
 	}
 }
 
+void findMaxNumber(int n, int arr[])
+{
+	int max = arr[0];
+	for (int i = 1; i < n; i++)
+	{
+		if (max < arr[i])
+		{
+			max = arr[i];
+		}
+	}
+	printf("\nSo Lon Nhat = %d", max);
+}
+
+void insertX(int &n, int arr[], int x, int pos)
+{
+	n++;
+	for (int i = n; i >= pos; i--)
+	{
+		arr[i] = arr[i - 1];
+	}
+	arr[pos] = x;
+}
+
+void insertFirstArray(int &n, int arr[])
+{
+	printf("\nNhap gia tri can chen: ");
+	int x;
+	scanf("%d", &x);
+	int pos = 0;
+	insertX(n, arr, x, pos);
+
+	printf("Mang sau khi chen: ");
+	printArray(n, arr);
+}
+
+void insertPositionArray(int &n, int arr[])
+{
+	printf("\nNhap gia tri can chen: ");
+	int x;
+	scanf("%d", &x);
+	printf("\nNhap vi tri can chen: ");
+	int pos;
+	scanf("%d", &pos);
+	insertX(n, arr, x, pos);
+
+	printf("Mang sau khi chen: ");
+	printArray(n, arr);
+}
+
 void solve()
 {
 	int n;
@@ -74,6 +123,9 @@ void solve()
 	printArray(n, arr);
 	findFirstPositiveNumber(n, arr);
 	findLastPositiveNumber(n, arr);
+	findMaxNumber(n, arr);
+	insertFirstArray(n, arr);
+	insertPositionArray(n, arr);
 }
 
 int main()
