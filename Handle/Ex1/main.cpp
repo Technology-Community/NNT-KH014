@@ -39,6 +39,32 @@ void printArray(int n, int arr[])
 	}
 }
 
+void findFirstPositiveNumber(int n, int arr[])
+{
+	for (int i = 0; i < n; i++)
+	{
+		if (arr[i] > 0)
+		{
+			printf("\nVi tri so duong dau tien: %d", i);
+			printf("\nGia tri so duong dau tien: %d", arr[i]);
+			return;
+		}
+	}
+}
+
+void findLastPositiveNumber(int n, int arr[])
+{
+	for (int i = n - 1; i >= 0; i--)
+	{
+		if (arr[i] > 0)
+		{
+			printf("\nVi tri so duong cuoi cung: %d", i);
+			printf("\nGia tri so duong cuoi cung: %d", arr[i]);
+			return;
+		}
+	}
+}
+
 void solve()
 {
 	int n;
@@ -46,6 +72,8 @@ void solve()
 
 	fillArray(n, arr);
 	printArray(n, arr);
+	findFirstPositiveNumber(n, arr);
+	findLastPositiveNumber(n, arr);
 }
 
 int main()
