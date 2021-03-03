@@ -28,6 +28,11 @@ bool checkSameNumber(int n, int arr[], int value)
     return false;
 }
 
+bool checkSquareNumber(int value)
+{
+    return (float)sqrt(value) == (int)sqrt(value);
+}
+
 void fillArray(int &n, int arr[])
 {
     printf("Nhap n (0 < n <= 100 ): ");
@@ -54,12 +59,25 @@ void printArray(int n, int arr[])
     }
 }
 
+void printSquareNumberAtOddPosition(int n, int arr[])
+{
+    printf("\n\nSo chinh phuong vi tri le: ");
+    for (int i = 1; i < n; i = i + 2)
+    {
+        if (checkSquareNumber(arr[i]))
+        {
+            printf("%d\t", arr[i]);
+        }
+    }
+}
+
 void solve()
 {
     int n;
     int arr[100];
     fillArray(n, arr);
     printArray(n, arr);
+    printSquareNumberAtOddPosition(n, arr);
 }
 
 int main()
