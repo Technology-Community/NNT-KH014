@@ -71,6 +71,21 @@ void printSquareNumberAtOddPosition(int n, int arr[])
     }
 }
 
+void printPositionMaxNumber(int n, int arr[])
+{
+    int max = arr[0];
+    int position = 0;
+    for (int i = 1; i < n; i++)
+    {
+        if (max < arr[i])
+        {
+            max = arr[i];
+            position = i;
+        }
+    }
+    printf("\nVi tri phan tu lon nhat: %d", position);
+}
+
 void solve()
 {
     int n;
@@ -78,6 +93,7 @@ void solve()
     fillArray(n, arr);
     printArray(n, arr);
     printSquareNumberAtOddPosition(n, arr);
+    printPositionMaxNumber(n, arr);
 }
 
 int main()
