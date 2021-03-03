@@ -1,0 +1,145 @@
+/* Include File */
+#include <bits/stdc++.h>
+// #include ""
+
+/* Define */
+
+using namespace std;
+
+/* ---------- | ---------- | ---------- | ---------- | ---------- */
+
+bool checkSameNumber(int n, int arr[], int value)
+{
+    for (int i = 0; i < n; i++)
+    {
+        if (value == arr[i])
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+bool checkSquareNumber(int value)
+{
+    return (float)sqrt(value) == (int)sqrt(value);
+}
+
+void bubbleSort(int n, int arr[])
+{
+    for (int i = 0; i < n - 1; i++)
+        for (int j = 0; j < n - i - 1; j++)
+            if (arr[j] > arr[j + 1])
+                swap(arr[j], arr[j + 1]);
+}
+
+void fillArray(int &n, int arr[])
+{
+    printf("Nhap n (0 < n <= 100 ): ");
+    scanf("%d", &n);
+    printf("\nNhap mang: ");
+    for (int i = 0; i < n; i++)
+    {
+        printf("\nNhap a[%d] = ", i);
+        int temp;
+        do
+        {
+            scanf("%d", &temp);
+        } while (checkSameNumber(n, arr, temp));
+        arr[i] = temp;
+    }
+}
+
+void printArray(int n, int arr[])
+{
+    printf("\n\nXuat mang: ");
+    for (int i = 0; i < n; i++)
+    {
+        printf("\na[%d] = %d", i, arr[i]);
+    }
+}
+
+void printSquareNumberAtOddPosition(int n, int arr[])
+{
+    printf("\n\nSo chinh phuong vi tri le: ");
+    for (int i = 1; i < n; i = i + 2)
+    {
+        if (checkSquareNumber(arr[i]))
+        {
+            printf("%d\t", arr[i]);
+        }
+    }
+}
+
+void printPositionMaxNumber(int n, int arr[])
+{
+    int max = arr[0];
+    int position = 0;
+    for (int i = 1; i < n; i++)
+    {
+        if (max < arr[i])
+        {
+            max = arr[i];
+            position = i;
+        }
+    }
+    printf("\nVi tri phan tu lon nhat: %d", position);
+}
+
+void findNegativeNumberMax(int n, int arr[])
+{
+    int arrTemp[100];
+    for (int i = 0; i < n; i++)
+    {
+        arrTemp[i] = arr[i];
+    }
+    bubbleSort(n, arrTemp);
+    for (int i = 0; i < n; i++)
+    {
+        if (arrTemp[i] >= 0)
+        {
+            printf("\nSo am lon nhat: %d", arrTemp[i - 1]);
+            return;
+        }
+    }
+}
+
+void sumEvenPositions(int n, int arr[])
+{
+    int sum = 0;
+    for (int i = 0; i < n; i = i + 2)
+    {
+        sum += arr[i];
+    }
+    printf("\nTong cac so nam o vi tri chan: %d", sum);
+}
+
+void sortArrays(int n, int arr[])
+{
+    bubbleSort(n, arr);
+    printf("\nMang sau khi sap xep: ");
+    printArray(n, arr);
+}
+
+void solve()
+{
+    int n;
+    int arr[100];
+    fillArray(n, arr);
+    printArray(n, arr);
+    printSquareNumberAtOddPosition(n, arr);
+    printPositionMaxNumber(n, arr);
+    findNegativeNumberMax(n, arr);
+    sumEvenPositions(n, arr);
+    sortArrays(n, arr);
+}
+
+int main()
+{
+
+    solve();
+
+    fclose(stdin);
+    fclose(stdout);
+    return 0;
+}
