@@ -137,6 +137,7 @@ void maxMatrix(int d, int c, MATRIX matrix)
     printf("\nPhan tu lon nhat = %d", max);
 }
 
+
 void solve()
 {
     int d, c;
