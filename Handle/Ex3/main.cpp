@@ -77,6 +77,66 @@ void averageMatrix(int d, int c, MATRIX matrix)
     printf("\nTrung binh cong ma tran = %.2f", (float)sum / (d * c));
 }
 
+void averagePositiveNumber(int d, int c, MATRIX matrix)
+{
+    int sum = 0;
+    int count = 0;
+    for (int i = 0; i < d; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            if (matrix[i][j] > 0)
+            {
+                sum += matrix[i][j];
+                count++;
+            }
+        }
+    }
+    printf("\nTrung binh cong phan tu duong = %.2f", (float)sum / count);
+}
+
+void printRow(int d, int c, MATRIX matrix)
+{
+    int row;
+    printf("\nNhap vi tri dong: ");
+    scanf("%d", &row);
+    printf("\nSo phan tu:\n");
+    for (int i = 0; i < c; i++)
+    {
+        printf("%d \t", matrix[row][i]);
+    }
+}
+
+void sumColumn(int d, int c, MATRIX matrix)
+{
+    int col;
+    printf("\nNhap vi tri cot: ");
+    scanf("%d", &col);
+    int sum = 0;
+    for (int i = 0; i < d; i++)
+    {
+        // printf("%d \t", matrix[i][col]);
+        sum += matrix[i][col];
+    }
+    printf("\nTong phan tu cua cot: %d", sum);
+}
+
+void maxMatrix(int d, int c, MATRIX matrix)
+{
+    int max = matrix[0][0];
+    for (int i = 0; i < d; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            if (max < matrix[i][j])
+            {
+                max = matrix[i][j];
+            }
+        }
+    }
+    printf("\nPhan tu lon nhat = %d", max);
+}
+
 void solve()
 {
     int d, c;
@@ -85,6 +145,10 @@ void solve()
     printMatrix(d, c, matrix);
     printSumMatrix(d, c, matrix);
     averageMatrix(d, c, matrix);
+    averagePositiveNumber(d, c, matrix);
+    printRow(d, c, matrix);
+    sumColumn(d, c, matrix);
+    maxMatrix(d, c, matrix);
 }
 
 int main()
