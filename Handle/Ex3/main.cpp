@@ -20,6 +20,21 @@ typedef int MATRIX[100][100];
 
 /*  */
 
+int sumMatrix(int d, int c, MATRIX matrix)
+{
+    int sum = 0;
+    for (int i = 0; i < d; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            sum += matrix[i][j];
+        }
+    }
+    return sum;
+}
+
+/*  */
+
 void fillMatrix(int &d, int &c, MATRIX matrix)
 {
     printf("Nhap so dong : ");
@@ -51,17 +66,15 @@ void printMatrix(int d, int c, MATRIX matrix)
     }
 }
 
-void sumMatrix(int d, int c, MATRIX matrix)
+void printSumMatrix(int d, int c, MATRIX matrix)
 {
-    int sum = 0;
-    for (int i = 0; i < d; i++)
-    {
-        for (int j = 0; j < c; j++)
-        {
-            sum += matrix[i][j];
-        }
-    }
-    printf("\nTong ma tran = %d", sum);
+    printf("Tong ma tran = %d", sumMatrix(d, c, matrix));
+}
+
+void averageMatrix(int d, int c, MATRIX matrix)
+{
+    int sum = sumMatrix(d, c, matrix);
+    printf("\nTrung binh cong ma tran = %.2f", (float)sum / (d * c));
 }
 
 void solve()
@@ -70,7 +83,8 @@ void solve()
     int matrix[100][100];
     fillMatrix(d, c, matrix);
     printMatrix(d, c, matrix);
-    sumMatrix(d, c, matrix);
+    printSumMatrix(d, c, matrix);
+    averageMatrix(d, c, matrix);
 }
 
 int main()
