@@ -51,12 +51,26 @@ void printMatrix(int d, int c, MATRIX matrix)
     }
 }
 
+void sumMatrix(int d, int c, MATRIX matrix)
+{
+    int sum = 0;
+    for (int i = 0; i < d; i++)
+    {
+        for (int j = 0; j < c; j++)
+        {
+            sum += matrix[i][j];
+        }
+    }
+    printf("\nTong ma tran = %d", sum);
+}
+
 void solve()
 {
     int d, c;
     int matrix[100][100];
     fillMatrix(d, c, matrix);
     printMatrix(d, c, matrix);
+    sumMatrix(d, c, matrix);
 }
 
 int main()
