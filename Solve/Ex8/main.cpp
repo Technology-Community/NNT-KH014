@@ -1,11 +1,139 @@
-#include <bits/stdc++.h>
-#define MAX_GENDER_LENGTH 2
+/*  Title Project */
+/*
+    Descriptions
+*/
 
+/* Code by KingNNT */
+/*
+Author's infomations:
+    - Email: Dev.KingNNT@gmail.com
+    - Skype: live:king.nnt
+    - Facebook Profile: https://www.facebook.com/Kinggg.NNT
+    - Facebook Page: https://www.facebook.com/Dev.KingNNT
+    - Github Profile: https://github.com/KingNNT
+    - Gitlap Profile: https://gitlab.com/Dev.KingNNT
+    - Bitbucket Profile:
+*/
+
+/* ---------- | ---------- | ---------- | ---------- | ---------- */
+
+/* INCLUDE FILE */
+/** Include libraries of CPP */
+#include <bits/stdc++.h>
+/** Include my libraries */
+// #include ""
+/* END INCLUDE FILE */
+
+/* ---------- | ---------- | ---------- */
+/* DEFINITIONS */
+/** Define path file for input and output */
+#define pathio "/mnt/LearningAndWorking/Develop/C-CPP/GNU-Compiler/In-Out/"
+// #define pathio "E:/Develop/C-CPP/GNU-Compiler/In-Out/"
+#define lfi pathio "input.txt", "r", stdin
+#define lfo pathio "output.txt", "w", stdout
+
+/** Macro definitions for maximum length of variables */
+
+/* END DEFINITIONS */
+
+/* ---------- | ---------- | ---------- */
+/* NAMESPACE */
+using namespace std;
+/* END NAMESPACE */
+
+/* ---------- | ---------- | ---------- | ---------- | ---------- */
+
+/* DECLARE FUNCTIONS HELPER */
+/*** Code at "DECLARE FUNCTION HELPER BLOCK" ***/
+
+/* END DECLARE FUNCTIONS HELPER */
+
+/* ---------- | ---------- | ---------- */
+/* DECLARE CLASS */
+/*** Code at "DECLARE CLASS BLOCK" ***/
+
+/* END DECLARE CLASS */
+class Demo
+{
+private:
+    int a;
+
+public:
+    void fill();
+    void print();
+};
+/* ---------- | ---------- | ---------- */
+/* DECLARE STRUCT */
+
+/* END DECLARE STRUCT */
+
+/* ---------- | ---------- | ---------- */
+/* DECLARE TYPEDEF */
+
+/* END DECLARE TYPEDEF */
+
+/* ---------- | ---------- | ---------- */
+/* DECLARE FUNCTIONS HANDLE*/
+/*** Code at "DECLARE FUNCTION HANDLE BLOCK" ***/
+
+/* END DECLARE FUNCTIONS HANDLE */
+
+/* ---------- | ---------- | ---------- | ---------- | ---------- */
+
+/* SOLVE */
+void solve()
+{
+    Demo obj;
+    obj.fill();
+    obj.print();
+    return;
+}
+/* END SOLVE */
+
+/* ---------- | ---------- | ---------- */
+/* MAIN */
 int main()
 {
-    char str1[MAX_GENDER_LENGTH] = "x";
-    int result = strcmp(str1, "x");
-    printf("strcmp(str1, str2) = %d\n", result);
+    freopen(lfi);
+    freopen(lfo);
+    // ios_base :: sync_with_stdio (0);
+    cin.tie(0);
 
+    solve();
+
+    fclose(stdin);
+    fclose(stdout);
     return 0;
 }
+/* END MAIN*/
+
+/* ---------- | ---------- | ---------- | ---------- | ---------- */
+
+/* FUNCTIONS HELPER */
+/*** Declare at "DECLARE FUNCTION HELPER BLOCK" ***/
+
+/* END FUNTIONS HELPER */
+
+/* ---------- | ---------- | ---------- */
+/* FUNCTIONS HANDLE*/
+/*** Declare at "DECLARE FUNCTION HANDLE BLOCK" ***/
+
+/* END FUNTIONS HANDLE */
+
+/* ---------- | ---------- | ---------- */
+/* CLASS */
+/*** Declare at "DECLARE CLASS BLOCK" ***/
+class Demo
+{
+public:
+    void fill()
+    {
+        cin >> this.a;
+    }
+
+    void print()
+    {
+        cout << this.a;
+    }
+};
+/* END CLASS */

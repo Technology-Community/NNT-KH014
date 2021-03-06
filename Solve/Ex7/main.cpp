@@ -36,6 +36,8 @@ Author's infomations:
 #define MAX_NAME_LENGTH 50
 #define MAX_GENDER_LENGTH 2
 #define MAX_CLASS_LENGTH 8
+#define MAX_QUANTITY 100
+
 /* END DEFINITIONS */
 
 /* ---------- | ---------- | ---------- */
@@ -90,6 +92,8 @@ void fillDate(Date &obj);
 void printDate(Date obj);
 void fillStudent(Student &obi);
 void printStudent(Student obj);
+void fillArrayStudents(int &quantity, Student arr[]);
+void printArrayStudents(int quantity, Student arr[]);
 /* END DECLARE FUNCTIONS HANDLE */
 
 /* ---------- | ---------- | ---------- | ---------- | ---------- */
@@ -97,9 +101,10 @@ void printStudent(Student obj);
 /* SOLVE */
 void solve()
 {
-    Student obj;
-    fillStudent(obj);
-    printStudent(obj);
+    int quantity;
+    Student arr[MAX_QUANTITY];
+    fillArrayStudents(quantity, arr);
+    printArrayStudents(quantity, arr);
     return;
 }
 /* END SOLVE */
@@ -155,24 +160,28 @@ void fillStudent(Student &obj)
     cin.getline(obj._name, MAX_NAME_LENGTH);
     printf("Nhap gioi tinh (x: nu, y: nam): ");
     cin.getline(obj._gender, MAX_GENDER_LENGTH);
+    printf("Nhap ngay sinh:\n");
     fillDate(obj._birthday);
+    printf("Nhap lop: ");
+    cin.ignore();
+    cin.getline(obj._class, MAX_CLASS_LENGTH);
     printf("Nhap diem trung binh: ");
     scanf("%f", &obj._gradePointAverage);
 }
 
 void printStudent(Student obj)
 {
-    printf("\nThong Tin Sinh Vien\n");
+    printf("\nThong Tin Sinh Vien");
     printf("\nMa Sinh Vien: %d", obj._id);
     printf("\nHo va ten: %s", obj._name);
-    char gender[MAX_GENDER_LENGTH];
+    char gender[4] = "";
     if (strcmp(obj._gender, "x") == 0)
     {
-        strcpy("Nu", gender);
+        strcpy(gender, "Nu");
     }
     else if (strcmp(obj._gender, "y") == 0)
     {
-        strcpy("Nam", gender);
+        strcpy(gender, "Nam");
     }
     else
     {
@@ -182,33 +191,27 @@ void printStudent(Student obj)
     printf("\nNgay Sinh: ");
     printDate(obj._birthday);
     printf("\nLop: %s", obj._class);
-    printf("Diem trung binh = %.2f", obj._gradePointAverage);
+    printf("\nDiem trung binh = %.2f", obj._gradePointAverage);
+}
+
+void fillArrayStudents(int &quantity, Student arr[])
+{
+    printf("Nhap so luong sinh vien: ");
+    scanf("%d", &quantity);
+    for (int i = 0; i < quantity; ++i)
+    {
+        printf("Nhap sinh vien thu %d", i);
+        fillStudent(arr[i]);
+    }
+}
+
+void printArrayStudents(int quantity, Student arr[])
+{
+    printf("\nDanh sach sinh vien:\n");
+    for (int i = 0; i < quantity; ++i)
+    {
+        printf("\n\nSinh vien thu %d", i);
+        printStudent(arr[i]);
+    }
 }
 /* END FUNTIONS HANDLE */
-
-/* ---------- | ---------- | ---------- */
-/* STRUCT */
-/*** Declare at "DECLARE STRUCT BLOCK" ***/
-// struct Date
-// {
-//     int _day;
-//     int _month;
-//     int _year;
-// };
-
-// struct Student
-// {
-//     int _id;
-//     char[MAX_NAME_LENGTH] _name;
-//     char[MAX_GENDER_LENGTH] _gender;
-//     Date _birthday;
-//     char[MAX_CLASS_LENGTH] _class;
-//     float _gradePointAverage;
-// };
-/* END STRUCT */
-
-/* ---------- | ---------- | ---------- */
-/* CLASS */
-/*** Declare at "DECLARE CLASS BLOCK" ***/
-
-/* END CLASS */
