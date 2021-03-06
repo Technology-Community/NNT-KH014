@@ -1,4 +1,4 @@
-/*  Title Project */
+/* Ex6 - Page 15  */
 /*
     Descriptions
 */
@@ -53,17 +53,13 @@ using namespace std;
 /*** Code at "DECLARE CLASS BLOCK" ***/
 
 /* END DECLARE CLASS */
-class Demo
-{
-private:
-    int a;
 
-public:
-    void fill();
-    void print();
-};
 /* ---------- | ---------- | ---------- */
 /* DECLARE STRUCT */
+struct Parcel
+{
+    
+};
 
 /* END DECLARE STRUCT */
 
@@ -83,9 +79,7 @@ public:
 /* SOLVE */
 void solve()
 {
-    Demo obj;
-    obj.fill();
-    obj.print();
+    // Code Here
     return;
 }
 /* END SOLVE */
@@ -119,21 +113,3 @@ int main()
 /*** Declare at "DECLARE FUNCTION HANDLE BLOCK" ***/
 
 /* END FUNTIONS HANDLE */
-
-/* ---------- | ---------- | ---------- */
-/* CLASS */
-/*** Declare at "DECLARE CLASS BLOCK" ***/
-class Demo
-{
-public:
-    void fill()
-    {
-        cin >> this.a;
-    }
-
-    void print()
-    {
-        cout << this.a;
-    }
-};
-/* END CLASS */
