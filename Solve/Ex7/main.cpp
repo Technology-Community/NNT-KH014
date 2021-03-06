@@ -214,4 +214,5 @@ void printArrayStudents(int quantity, Student arr[])
         printStudent(arr[i]);
     }
 }
+/* TODO: part d - page 12 */
 /* END FUNTIONS HANDLE */
