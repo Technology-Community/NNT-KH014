@@ -94,6 +94,12 @@ void fillStudent(Student &obi);
 void printStudent(Student obj);
 void fillArrayStudents(int &quantity, Student arr[]);
 void printArrayStudents(int quantity, Student arr[]);
+void printStudentsIT(int quantity, Student arr[]);
+void countMaleStudent(int quantity, Student arr[]);
+float maxGPA(int quantity, Student arr[]);
+void printStudentsHaveMaxGPA(int quantity, Student arr[]);
+void addNewStudent(int &quantity, Student arr[]);
+
 /* END DECLARE FUNCTIONS HANDLE */
 
 /* ---------- | ---------- | ---------- | ---------- | ---------- */
@@ -105,6 +111,10 @@ void solve()
     Student arr[MAX_QUANTITY];
     fillArrayStudents(quantity, arr);
     printArrayStudents(quantity, arr);
+    printStudentsIT(quantity, arr);
+    countMaleStudent(quantity, arr);
+    printStudentsHaveMaxGPA(quantity, arr);
+    addNewStudent(quantity, arr);
     return;
 }
 /* END SOLVE */
@@ -187,7 +197,7 @@ void printStudent(Student obj)
     {
         strcpy("Khong xac dinh", gender);
     }
-    printf("\nHo va ten: %s", gender);
+    printf("\nGioi tinh: %s", gender);
     printf("\nNgay Sinh: ");
     printDate(obj._birthday);
     printf("\nLop: %s", obj._class);
@@ -214,5 +224,67 @@ void printArrayStudents(int quantity, Student arr[])
         printStudent(arr[i]);
     }
 }
-/* TODO: part d - page 12 */
+
+void printStudentsIT(int quantity, Student arr[])
+{
+    char specialized[MAX_CLASS_LENGTH] = "IT";
+
+    printf("\nDanh sach sinh vien thuoc nganh %s\n", specialized);
+    for (int i = 0; i < quantity; i++)
+    {
+        char *result = strstr(arr[i]._class, specialized);
+        if (result != NULL)
+        {
+            printStudent(arr[i]);
+        }
+        printf("\n");
+    }
+}
+
+void countMaleStudent(int quantity, Student arr[])
+{
+    int count = 0;
+    for (int i = 0; i < quantity; i++)
+    {
+        if (strcmp(arr[i]._gender, "x"))
+        {
+            count++;
+        }
+    }
+    printf("So luong sinh vien nu = %d", count);
+}
+
+float maxGPA(int quantity, Student arr[])
+{
+    float max = arr[0]._gradePointAverage;
+    for (int i = 1; i < quantity; i++)
+    {
+        if (max < arr[i]._gradePointAverage)
+        {
+            max = arr[i]._gradePointAverage;
+        }
+    }
+    return max;
+}
+
+void printStudentsHaveMaxGPA(int quantity, Student arr[])
+{
+    float max = maxGPA(quantity, arr);
+    printf("\nDanh sach sinh vien co diem trung binh cao nhat:\n");
+    for (int i = 0; i < quantity; i++)
+    {
+        if (max == arr[i]._gradePointAverage)
+        {
+            printStudent(arr[i]);
+        }
+    }
+}
+
+void addNewStudent(int &quantity, Student arr[])
+{
+    quantity++;
+    printf("Nhap thong tin sinh vien moi: ");
+    fillStudent(arr[quantity]);
+}
+/* TODO: part h - page 12 */
 /* END FUNTIONS HANDLE */
