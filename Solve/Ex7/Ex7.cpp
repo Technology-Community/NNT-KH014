@@ -1,19 +1,3 @@
-/* C Language */
-/*
-    Ex5 - Page 11
-*/
-
-/* Code by KingNNT */
-/*
-Author's infomations:
-    - Email: Dev.KingNNT@gmail.com
-    - Skype: live:king.nnt
-    - Facebook Profile: https://www.facebook.com/Kinggg.NNT
-    - Facebook Page: https://www.facebook.com/Dev.KingNNT
-    - Github Profile: https://github.com/KingNNT
-    - Gitlap Profile: https://gitlab.com/Dev.KingNNT
-    - Bitbucket Profile:
-*/
 
 /* ---------- | ---------- | ---------- | ---------- | ---------- */
 
@@ -27,10 +11,6 @@ Author's infomations:
 /* ---------- | ---------- | ---------- */
 /* DEFINITIONS */
 /** Define path file for input and output */
-#define pathio "/mnt/LearningAndWorking/Develop/C-CPP/GNU-Compiler/In-Out/"
-// #define pathio "E:/Develop/C-CPP/GNU-Compiler/In-Out/"
-#define lfi pathio "input.txt", "r", stdin
-#define lfo pathio "output.txt", "w", stdout
 
 /** Macro definitions for maximum length of variables */
 #define MAX_NAME_LENGTH 50
@@ -127,11 +107,6 @@ void solve()
 /* MAIN */
 int main()
 {
-    freopen(lfi);
-    freopen(lfo);
-    // ios_base :: sync_with_stdio (0);
-    cin.tie(0);
-
     solve();
 
     fclose(stdin);
