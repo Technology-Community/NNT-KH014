@@ -325,3 +325,38 @@ void sortArray(int quantity, Student arr[])
     printArrayStudents(quantity, arr);
 }
 /* END FUNTIONS HANDLE */
+/*
+//////////////////////////////
+/////		Input		//////
+//////////////////////////////
+
+3
+1
+Nguyen Van A
+y
+1 1 2000
+18DIT01
+3.1
+2
+Nguyen Van B
+x
+2 2 2001
+19DIT02
+3.5
+3
+Nguyen Van C
+y
+3 3 2003
+20DMM03
+3.3
+4
+Nguyen Van D
+x
+4 4 2004
+21DMM04
+2.9
+3
+
+
+//////////////////////////////
+*/
