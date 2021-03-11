@@ -1,19 +1,3 @@
-/* Ex6 - Page 15  */
-/*
-    Descriptions
-*/
-
-/* Code by KingNNT */
-/*
-Author's infomations:
-    - Email: Dev.KingNNT@gmail.com
-    - Skype: live:king.nnt
-    - Facebook Profile: https://www.facebook.com/Kinggg.NNT
-    - Facebook Page: https://www.facebook.com/Dev.KingNNT
-    - Github Profile: https://github.com/KingNNT
-    - Gitlap Profile: https://gitlab.com/Dev.KingNNT
-    - Bitbucket Profile:
-*/
 
 /* ---------- | ---------- | ---------- | ---------- | ---------- */
 
@@ -27,10 +11,6 @@ Author's infomations:
 /* ---------- | ---------- | ---------- */
 /* DEFINITIONS */
 /** Define path file for input and output */
-#define pathio "/mnt/LearningAndWorking/Develop/C-CPP/GNU-Compiler/In-Out/"
-// #define pathio "E:/Develop/C-CPP/GNU-Compiler/In-Out/"
-#define lfi pathio "input.txt", "r", stdin
-#define lfo pathio "output.txt", "w", stdout
 
 /** Macro definitions for maximum length of variables */
 #define MAX_NAME_LENGTH 50
@@ -126,11 +106,6 @@ void solve()
 /* MAIN */
 int main()
 {
-    freopen(lfi);
-    freopen(lfo);
-    // ios_base :: sync_with_stdio (0);
-    cin.tie(0);
-
     solve();
 
     fclose(stdin);
@@ -313,34 +288,3 @@ void exportParcelWithDate(int quantity, Parcel arr[])
     }
 }
 /* END FUNTIONS HANDLE */
-/*
-//////////////////////////////
-/////		Input		//////
-//////////////////////////////
-
-2
-1
-1 Seeder
-1 Recerver
-100
-1 1 2021
-1 Content
-10000
-3
-3 Seeder
-3 Recerver
-300
-3 3 2021
-3 Content
-30000
-2
-2 Seeder
-2 Recerver
-200
-2 2 2021
-2 Content
-20000
-1 Seeder
-
-//////////////////////////////
-*/
