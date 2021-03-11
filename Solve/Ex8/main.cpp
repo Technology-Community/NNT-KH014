@@ -96,6 +96,8 @@ void fillArrayParcel(int &quantity, Parcel arr[]);
 void printArrayParcels(int quantity, Parcel arr[]);
 void addNewParcel(int &quantity, Parcel arr[]);
 void sortArray(int quantity, Parcel arr[]);
+void priceArrayParcel(int quantity, Parcel arr[]);
+void countParcelMaxWeight(int quantity, Parcel arr[]);
 
 /* END DECLARE FUNCTIONS HANDLE */
 
@@ -110,6 +112,9 @@ void solve()
     printArrayParcels(quantity, arr);
     addNewParcel(quantity, arr);
     sortArray(quantity, arr);
+    priceArrayParcel(quantity, arr);
+    countParcelMaxWeight(quantity, arr);
+
     return;
 }
 /* END SOLVE */
@@ -150,6 +155,19 @@ void bubbleSort(int quantity, Parcel arr[])
         for (int j = 0; j < quantity - i - 1; j++)
             if (arr[j]._id > arr[j + 1]._id)
                 swap(arr[j], arr[j + 1]);
+}
+
+float maxWeight(int quantity, Parcel arr[])
+{
+    int max = arr[0]._weight;
+    for (int i = 0; i < quantity; i++)
+    {
+        if (max < arr[i]._weight)
+        {
+            max = arr[i]._weight;
+        }
+    }
+    return max;
 }
 /* ---------- | ---------- | ---------- */
 /* FUNCTIONS HANDLE*/
@@ -232,5 +250,33 @@ void sortArray(int quantity, Parcel arr[])
     bubbleSort(quantity, arr);
     printf("\n\nSau khi sap xep:");
     printArrayParcels(quantity, arr);
+}
+
+float priceAParcel(Parcel obj)
+{
+    return obj._weight * obj._price;
+}
+
+void priceArrayParcel(int quantity, Parcel arr[])
+{
+    for (int i = 0; i < quantity; i++)
+    {
+        printf("\nGia tri buu kien thu %d: %.2f", i, priceAParcel(arr[i]));
+    }
+}
+
+void countParcelMaxWeight(int quantity, Parcel arr[])
+{
+    int max = maxWeight(quantity, arr);
+    int count = 0;
+    for (int i = 0; i < quantity; i++)
+    {
+        if (arr[i]._weight == max)
+        {
+            // printAParcel(arr[i]);
+            count++;
+        }
+    }
+    printf("\nSo luong buu kien co trong luong lon nhat = %d", count);
 }
 /* END FUNTIONS HANDLE */
