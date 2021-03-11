@@ -93,7 +93,9 @@ void printDate(Date obj);
 void fillAParcel(Parcel &obi);
 void printAparcel(Parcel obj);
 void fillArrayParcel(int &quantity, Parcel arr[]);
-void printArrayParcel(int quantity, Parcel arr[]);
+void printArrayParcels(int quantity, Parcel arr[]);
+void addNewParcel(int &quantity, Parcel arr[]);
+void sortArray(int quantity, Parcel arr[]);
 
 /* END DECLARE FUNCTIONS HANDLE */
 
@@ -105,7 +107,9 @@ void solve()
     int quantity;
     Parcel arr[MAX_QUANTITY];
     fillArrayParcel(quantity, arr);
-    printArrayParcel(quantity, arr);
+    printArrayParcels(quantity, arr);
+    addNewParcel(quantity, arr);
+    sortArray(quantity, arr);
     return;
 }
 /* END SOLVE */
@@ -133,7 +137,20 @@ int main()
 /*** Declare at "DECLARE FUNCTION HELPER BLOCK" ***/
 
 /* END FUNTIONS HELPER */
+void swap(Parcel &x, Parcel &y)
+{
+    Parcel temp = x;
+    x = y;
+    y = temp;
+}
 
+void bubbleSort(int quantity, Parcel arr[])
+{
+    for (int i = 0; i < quantity - 1; i++)
+        for (int j = 0; j < quantity - i - 1; j++)
+            if (arr[j]._id > arr[j + 1]._id)
+                swap(arr[j], arr[j + 1]);
+}
 /* ---------- | ---------- | ---------- */
 /* FUNCTIONS HANDLE*/
 /*** Declare at "DECLARE FUNCTION HANDLE BLOCK" ***/
@@ -192,13 +209,28 @@ void fillArrayParcel(int &quantity, Parcel arr[])
     }
 }
 
-void printArrayParcel(int quantity, Parcel arr[])
+void printArrayParcels(int quantity, Parcel arr[])
 {
     for (int i = 0; i < quantity; i++)
     {
-        printf("\nBuu kien thu %d:", i);
+        printf("\n\nBuu kien thu %d:", i);
         printAParcel(arr[i]);
     }
 }
 
+void addNewParcel(int &quantity, Parcel arr[])
+{
+    printf("\nNhap thong tin buu kien moi: ");
+    fillAParcel(arr[quantity]);
+    quantity++;
+    printf("\n\nSau khi them:");
+    printArrayParcels(quantity, arr);
+}
+
+void sortArray(int quantity, Parcel arr[])
+{
+    bubbleSort(quantity, arr);
+    printf("\n\nSau khi sap xep:");
+    printArrayParcels(quantity, arr);
+}
 /* END FUNTIONS HANDLE */

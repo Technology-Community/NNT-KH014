@@ -299,7 +299,7 @@ void printStudentsHaveMaxGPA(int quantity, Student arr[])
 
 void addNewStudent(int &quantity, Student arr[])
 {
-    printf("Nhap thong tin sinh vien moi: ");
+    printf("\nNhap thong tin sinh vien moi: ");
     fillStudent(arr[quantity]);
     quantity++;
     printf("\n\nSau khi them:");
