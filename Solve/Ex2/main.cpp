@@ -48,10 +48,10 @@ void fillArray(int &n, int arr[])
     printf("\nNhap mang: ");
     for (int i = 0; i < n; i++)
     {
-        printf("\nNhap a[%d] = ", i);
         int temp;
         do
         {
+            printf("\nNhap a[%d] = ", i);
             scanf("%d", &temp);
         } while (checkSameNumber(n, arr, temp));
         arr[i] = temp;
@@ -94,7 +94,7 @@ void printPositionMaxNumber(int n, int arr[])
     printf("\nVi tri phan tu lon nhat: %d", position);
 }
 
-void findNegativeNumberMax(int n, int arr[])
+void findNegativeNumberMaxAndPositiveNumberMin(int n, int arr[])
 {
     int arrTemp[100];
     for (int i = 0; i < n; i++)
@@ -107,6 +107,7 @@ void findNegativeNumberMax(int n, int arr[])
         if (arrTemp[i] >= 0)
         {
             printf("\nSo am lon nhat: %d", arrTemp[i - 1]);
+            printf("\nSo duong nho nhat: %d", arrTemp[i]);
             return;
         }
     }
@@ -137,7 +138,7 @@ void solve()
     printArray(n, arr);
     printSquareNumberAtOddPosition(n, arr);
     printPositionMaxNumber(n, arr);
-    findNegativeNumberMax(n, arr);
+    findNegativeNumberMaxAndPositiveNumberMin(n, arr);
     sumEvenPositions(n, arr);
     sortArrays(n, arr);
 }
@@ -155,3 +156,13 @@ int main()
     fclose(stdout);
     return 0;
 }
+/*
+//////////////////////////////
+/////		Input		//////
+//////////////////////////////
+
+6
+1 3 1 1 1 1 2 -5 8 2 2 2 2 9
+
+//////////////////////////////
+*/
