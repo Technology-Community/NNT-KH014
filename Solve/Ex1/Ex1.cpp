@@ -1,4 +1,8 @@
+/* Include File */
 #include <bits/stdc++.h>
+// #include ""
+
+/* Define */
 
 using namespace std;
 
@@ -53,7 +57,7 @@ void findLastPositiveNumber(int n, int arr[])
     }
 }
 
-void findMaxNumber(int n, int arr[])
+void findAndCountMaxNumber(int n, int arr[])
 {
     int max = arr[0];
     for (int i = 1; i < n; i++)
@@ -63,7 +67,17 @@ void findMaxNumber(int n, int arr[])
             max = arr[i];
         }
     }
-    printf("\nSo Lon Nhat = %d", max);
+    int count = 0;
+    printf("\nVi tri cac phan tu lon nhat: ");
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] == max)
+        {
+            count++;
+            printf("\t%d", i);
+        }
+    }
+    printf("\nSo Lon Nhat = %d gom %d phan tu", max, count);
 }
 
 void insertX(int &n, int arr[], int x, int pos)
@@ -84,7 +98,7 @@ void insertFirstArray(int &n, int arr[])
     int pos = 0;
     insertX(n, arr, x, pos);
 
-    printf("Mang sau khi chen: ");
+    printf("\nMang sau khi chen: ");
     printArray(n, arr);
 }
 
@@ -98,7 +112,7 @@ void insertPositionArray(int &n, int arr[])
     scanf("%d", &pos);
     insertX(n, arr, x, pos);
 
-    printf("Mang sau khi chen: ");
+    printf("\nMang sau khi chen: ");
     printArray(n, arr);
 }
 
@@ -169,16 +183,20 @@ void solve()
     printArray(n, arr);
     findFirstPositiveNumber(n, arr);
     findLastPositiveNumber(n, arr);
-    findMaxNumber(n, arr);
+    findAndCountMaxNumber(n, arr);
     insertFirstArray(n, arr);
     insertPositionArray(n, arr);
     deleteFirstArray(n, arr);
-    deleteFirstArray(n, arr);
+    deletePositionArray(n, arr);
+    checkOddNumber(n, arr);
     initEvenNumberArray(n, arr);
 }
 
 int main()
 {
     solve();
+
+    fclose(stdin);
+    fclose(stdout);
     return 0;
 }
