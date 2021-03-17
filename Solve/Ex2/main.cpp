@@ -106,7 +106,14 @@ void findNegativeNumberMaxAndPositiveNumberMin(int n, int arr[])
     {
         if (arrTemp[i] >= 0)
         {
-            printf("\nSo am lon nhat: %d", arrTemp[i - 1]);
+            if (arrTemp[i - 1] < 0)
+            {
+                printf("\nSo am lon nhat: %d", arrTemp[i - 1]);
+            }
+            else
+            {
+                printf("\nKhong co so am");
+            }
             printf("\nSo duong nho nhat: %d", arrTemp[i]);
             return;
         }
