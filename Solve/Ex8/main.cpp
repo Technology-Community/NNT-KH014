@@ -144,7 +144,6 @@ int main()
 /* FUNCTIONS HELPER */
 /*** Declare at "DECLARE FUNCTION HELPER BLOCK" ***/
 
-/* END FUNTIONS HELPER */
 void swap(Parcel &x, Parcel &y)
 {
     Parcel temp = x;
@@ -172,6 +171,8 @@ float maxWeight(int quantity, Parcel arr[])
     }
     return max;
 }
+/* END FUNTIONS HELPER */
+
 /* ---------- | ---------- | ---------- */
 /* FUNCTIONS HANDLE*/
 /*** Declare at "DECLARE FUNCTION HANDLE BLOCK" ***/

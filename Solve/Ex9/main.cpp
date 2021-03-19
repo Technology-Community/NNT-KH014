@@ -95,6 +95,7 @@ void printAparcel(PhoneNumber obj);
 void fillArrayPhoneNumbers(int &quantity, PhoneNumber arr[]);
 void printArrayPhoneNumbers(int quantity, PhoneNumber arr[]);
 void addNewPhoneNumber(int &quantity, PhoneNumber arr[]);
+void sortArray(int quantity, PhoneNumber arr[]);
 
 /* END DECLARE FUNCTIONS HANDLE */
 
@@ -108,6 +109,7 @@ void solve()
     fillArrayPhoneNumbers(quantity, arr);
     printArrayPhoneNumbers(quantity, arr);
     addNewPhoneNumber(quantity, arr);
+    sortArray(quantity, arr);
 
     return;
 }
@@ -134,7 +136,20 @@ int main()
 
 /* FUNCTIONS HELPER */
 /*** Declare at "DECLARE FUNCTION HELPER BLOCK" ***/
+void swap(PhoneNumber &x, PhoneNumber &y)
+{
+    PhoneNumber temp = x;
+    x = y;
+    y = temp;
+}
 
+void bubbleSort(int quantity, PhoneNumber arr[])
+{
+    for (int i = 0; i < quantity - 1; i++)
+        for (int j = 0; j < quantity - i - 1; j++)
+            if (arr[j]._id > arr[j + 1]._id)
+                swap(arr[j], arr[j + 1]);
+}
 /* END FUNTIONS HELPER */
 
 /* ---------- | ---------- | ---------- */
@@ -209,6 +224,14 @@ void addNewPhoneNumber(int &quantity, PhoneNumber arr[])
     printf("\n\nSau khi them:");
     printArrayPhoneNumbers(quantity, arr);
 }
+
+void sortArray(int quantity, PhoneNumber arr[])
+{
+    bubbleSort(quantity, arr);
+    printf("\n\nSau khi sap xep:");
+    printArrayPhoneNumbers(quantity, arr);
+}
+
 /* END FUNTIONS HANDLE */
 
 /* ---------- | ---------- | ---------- */
