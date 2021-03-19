@@ -1,22 +1,3 @@
-/* Ex1 - Page 16 - 6.jpg*/
-/*
-    Descriptions
-*/
-
-/* Code by KingNNT */
-/*
-Author's infomations:
-    - Email: Dev.KingNNT@gmail.com
-    - Skype: live:king.nnt
-    - Facebook Profile: https://www.facebook.com/Kinggg.NNT
-    - Facebook Page: https://www.facebook.com/Dev.KingNNT
-    - Github Profile: https://github.com/KingNNT
-    - Gitlap Profile: https://gitlab.com/Dev.KingNNT
-    - Bitbucket Profile:
-*/
-
-/* ---------- | ---------- | ---------- | ---------- | ---------- */
-
 /* INCLUDE FILE */
 /** Include libraries of CPP */
 #include <bits/stdc++.h>
@@ -27,10 +8,6 @@ Author's infomations:
 /* ---------- | ---------- | ---------- */
 /* DEFINITIONS */
 /** Define path file for input and output */
-#define pathio "/mnt/LearningAndWorking/Develop/C-CPP/GNU-Compiler/In-Out/"
-// #define pathio "E:/Develop/C-CPP/GNU-Compiler/In-Out/"
-#define lfi pathio "input.txt", "r", stdin
-#define lfo pathio "output.txt", "w", stdout
 
 /** Macro definitions for maximum length of variables */
 #define MAX_NAME_LENGTH 50
@@ -114,10 +91,6 @@ void solve()
 /* MAIN */
 int main()
 {
-    freopen(lfi);
-    freopen(lfo);
-    // ios_base :: sync_with_stdio (0);
-    cin.tie(0);
 
     solve();
 
@@ -288,42 +261,3 @@ void exportBookWithType(int quantity, Book arr[])
 }
 
 /* END FUNTIONS HANDLE */
-/*
-//////////////////////////////
-/////		Input		//////
-//////////////////////////////
-
-3
-2
-Sach 2
-Tac Gia 2
-1
-2010
-50000
-50
-1
-Sach 1
-Tac Gia 1
-0
-1998
-30000
-10
-3
-Sach 3
-Tac Gia 3
-0
-2020
-90000
-30
-4
-Sach 4
-Tac Gia 4
-1
-2015
-100000
-75
-Sach 2
-1
-
-//////////////////////////////
-*/
