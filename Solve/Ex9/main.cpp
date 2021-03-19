@@ -98,6 +98,7 @@ void addNewPhoneNumber(int &quantity, PhoneNumber arr[]);
 void sortArray(int quantity, PhoneNumber arr[]);
 void findWithName(int quantity, PhoneNumber arr[]);
 void exportPhoneNumberWithPaidType(int quantity, PhoneNumber arr[]);
+void exportPhoneNumberAfterYear(int quantity, PhoneNumber arr[]);
 
 /* END DECLARE FUNCTIONS HANDLE */
 
@@ -114,6 +115,7 @@ void solve()
     sortArray(quantity, arr);
     findWithName(quantity, arr);
     exportPhoneNumberWithPaidType(quantity, arr);
+    exportPhoneNumberAfterYear(quantity, arr);
     return;
 }
 /* END SOLVE */
@@ -251,7 +253,7 @@ void findWithName(int quantity, PhoneNumber arr[])
     char name[MAX_NAME_LENGTH];
     cin.ignore();
     cin.getline(name, MAX_NAME_LENGTH);
-    printf("\nThong tin thue bao tim thay: ");
+    printf("\nThong tin thue bao tim thay voi ten chu tai khoan: ");
     for (int i = 0; i < quantity; i++)
     {
         if (strcmp(name, arr[i]._owner) == 0)
@@ -265,10 +267,23 @@ void exportPhoneNumberWithPaidType(int quantity, PhoneNumber arr[])
 {
     int type;
     scanf("%d", &type);
-    printf("\nThong tin thue bao tim thay: ");
+    printf("\nThong tin thue bao tim thay voi loai %d: ", type);
     for (int i = 0; i < quantity; i++)
     {
         if (arr[i]._paidType == type)
+        {
+            printAPhoneNumber(arr[i]);
+        }
+    }
+}
+
+void exportPhoneNumberAfterYear(int quantity, PhoneNumber arr[])
+{
+    int year = 2010;
+    printf("\nThong tin thue bao tim thay sau nam %d: ", year);
+    for (int i = 0; i < quantity; i++)
+    {
+        if (arr[i]._createdAt._year > year)
         {
             printAPhoneNumber(arr[i]);
         }
@@ -296,7 +311,7 @@ void exportPhoneNumberWithPaidType(int quantity, PhoneNumber arr[])
 5
 2
 Nguyen Van B
-2 2 2020
+2 2 2010
 0999000002
 200
 2000
@@ -324,7 +339,7 @@ Nguyen Van E
 4
 1
 Nguyen Van D
-4 4 2020
+4 4 2007
 0999000004
 400
 4000
@@ -337,6 +352,7 @@ Nguyen Van F
 6000
 1
 Nguyen Van A
+1
 
 //////////////////////////////
 */
