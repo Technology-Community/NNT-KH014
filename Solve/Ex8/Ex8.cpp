@@ -1,4 +1,3 @@
-
 /* ---------- | ---------- | ---------- | ---------- | ---------- */
 
 /* INCLUDE FILE */
@@ -71,7 +70,7 @@ typedef struct Parcel Parcel;
 void fillDate(Date &obj);
 void printDate(Date obj);
 void fillAParcel(Parcel &obi);
-void printAparcel(Parcel obj);
+void printAParcel(Parcel obj);
 void fillArrayParcel(int &quantity, Parcel arr[]);
 void printArrayParcels(int quantity, Parcel arr[]);
 void addNewParcel(int &quantity, Parcel arr[]);
@@ -106,6 +105,11 @@ void solve()
 /* MAIN */
 int main()
 {
+    freopen(lfi);
+    freopen(lfo);
+    // ios_base :: sync_with_stdio (0);
+    cin.tie(0);
+
     solve();
 
     fclose(stdin);

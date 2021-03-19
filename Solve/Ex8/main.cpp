@@ -91,7 +91,7 @@ typedef struct Parcel Parcel;
 void fillDate(Date &obj);
 void printDate(Date obj);
 void fillAParcel(Parcel &obi);
-void printAparcel(Parcel obj);
+void printAParcel(Parcel obj);
 void fillArrayParcel(int &quantity, Parcel arr[]);
 void printArrayParcels(int quantity, Parcel arr[]);
 void addNewParcel(int &quantity, Parcel arr[]);
