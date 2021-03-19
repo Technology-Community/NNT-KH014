@@ -1,22 +1,3 @@
-/* Ex1 - Page 16 */
-/*
-    Descriptions
-*/
-
-/* Code by KingNNT */
-/*
-Author's infomations:
-    - Email: Dev.KingNNT@gmail.com
-    - Skype: live:king.nnt
-    - Facebook Profile: https://www.facebook.com/Kinggg.NNT
-    - Facebook Page: https://www.facebook.com/Dev.KingNNT
-    - Github Profile: https://github.com/KingNNT
-    - Gitlap Profile: https://gitlab.com/Dev.KingNNT
-    - Bitbucket Profile:
-*/
-
-/* ---------- | ---------- | ---------- | ---------- | ---------- */
-
 /* INCLUDE FILE */
 /** Include libraries of CPP */
 #include <bits/stdc++.h>
@@ -27,10 +8,6 @@ Author's infomations:
 /* ---------- | ---------- | ---------- */
 /* DEFINITIONS */
 /** Define path file for input and output */
-#define pathio "/mnt/LearningAndWorking/Develop/C-CPP/GNU-Compiler/In-Out/"
-// #define pathio "E:/Develop/C-CPP/GNU-Compiler/In-Out/"
-#define lfi pathio "input.txt", "r", stdin
-#define lfo pathio "output.txt", "w", stdout
 
 /** Macro definitions for maximum length of variables */
 #define MAX_NAME_LENGTH 50
@@ -127,11 +104,6 @@ void solve()
 /* MAIN */
 int main()
 {
-    freopen(lfi);
-    freopen(lfo);
-    // ios_base :: sync_with_stdio (0);
-    cin.tie(0);
-
     solve();
 
     fclose(stdin);
@@ -319,56 +291,3 @@ void postage(int quantity, PhoneNumber arr[])
 /*** Declare at "DECLARE CLASS BLOCK" ***/
 
 /* END CLASS */
-/*
-//////////////////////////////
-/////		Input		//////
-//////////////////////////////
-
-5
-2
-Nguyen Van B
-2 2 2010
-0999000002
-200
-2000
-0
-1
-Nguyen Van A
-1 1 2020
-0999000001
-100
-1000
-1
-3
-Nguyen Van C
-3 3 2020
-0999000003
-300
-3000
-0
-5
-Nguyen Van E
-5 5 2020
-0999000005
-500
-5000
-4
-1
-Nguyen Van D
-4 4 2007
-0999000004
-400
-4000
-1
-6
-Nguyen Van F
-6 6 2020
-0999000006
-600
-6000
-1
-Nguyen Van A
-1
-
-//////////////////////////////
-*/
