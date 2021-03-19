@@ -94,6 +94,7 @@ void fillAPhoneNumber(PhoneNumber &obi);
 void printAparcel(PhoneNumber obj);
 void fillArrayPhoneNumbers(int &quantity, PhoneNumber arr[]);
 void printArrayPhoneNumbers(int quantity, PhoneNumber arr[]);
+void addNewPhoneNumber(int &quantity, PhoneNumber arr[]);
 
 /* END DECLARE FUNCTIONS HANDLE */
 
@@ -106,6 +107,7 @@ void solve()
     PhoneNumber arr[MAX_QUANTITY];
     fillArrayPhoneNumbers(quantity, arr);
     printArrayPhoneNumbers(quantity, arr);
+    addNewPhoneNumber(quantity, arr);
 
     return;
 }
@@ -197,6 +199,15 @@ void printArrayPhoneNumbers(int quantity, PhoneNumber arr[])
         printf("\n\nThong tin thue bao thu %d:", i);
         printAPhoneNumber(arr[i]);
     }
+}
+
+void addNewPhoneNumber(int &quantity, PhoneNumber arr[])
+{
+    printf("\nNhap thong tin thue bao moi: ");
+    fillAPhoneNumber(arr[quantity]);
+    quantity++;
+    printf("\n\nSau khi them:");
+    printArrayPhoneNumbers(quantity, arr);
 }
 /* END FUNTIONS HANDLE */
 
