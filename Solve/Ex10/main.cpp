@@ -80,6 +80,10 @@ void fillABook(Book &obi);
 void printAparcel(Book obj);
 void fillArrayBooks(int &quantity, Book arr[]);
 void printArrayBooks(int quantity, Book arr[]);
+void addNewBook(int &quantity, Book arr[]);
+void totalMoney(int quantity, Book arr[]);
+void sortArray(int quantity, Book arr[]);
+
 /* END DECLARE FUNCTIONS HANDLE */
 
 /* ---------- | ---------- | ---------- | ---------- | ---------- */
@@ -91,6 +95,9 @@ void solve()
     Book arr[MAX_QUANTITY];
     fillArrayBooks(quantity, arr);
     printArrayBooks(quantity, arr);
+    addNewBook(quantity, arr);
+    totalMoney(quantity, arr);
+    sortArray(quantity, arr);
     return;
 }
 /* END SOLVE */
@@ -116,7 +123,20 @@ int main()
 
 /* FUNCTIONS HELPER */
 /*** Declare at "DECLARE FUNCTION HELPER BLOCK" ***/
+void swap(Book &x, Book &y)
+{
+    Book temp = x;
+    x = y;
+    y = temp;
+}
 
+void bubbleSort(int quantity, Book arr[])
+{
+    for (int i = 0; i < quantity - 1; i++)
+        for (int j = 0; j < quantity - i - 1; j++)
+            if (arr[j]._id > arr[j + 1]._id)
+                swap(arr[j], arr[j + 1]);
+}
 /* END FUNTIONS HELPER */
 
 /* ---------- | ---------- | ---------- */
@@ -177,4 +197,31 @@ void printArrayBooks(int quantity, Book arr[])
         printABook(arr[i]);
     }
 }
+
+void addNewBook(int &quantity, Book arr[])
+{
+    printf("\nNhap thong tin thue bao moi: ");
+    fillABook(arr[quantity]);
+    quantity++;
+    printf("\n\nSau khi them:");
+    printArrayBooks(quantity, arr);
+}
+
+void totalMoney(int quantity, Book arr[])
+{
+    int sum = 0;
+    for (int i = 0; i < quantity; i++)
+    {
+        sum += arr[i]._price * arr[i]._quantity;
+    }
+    printf("\nTong tien = %d", sum);
+}
+
+void sortArray(int quantity, Book arr[])
+{
+    bubbleSort(quantity, arr);
+    printf("\n\nSau khi sap xep:");
+    printArrayBooks(quantity, arr);
+}
+
 /* END FUNTIONS HANDLE */
