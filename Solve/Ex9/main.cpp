@@ -72,7 +72,7 @@ struct PhoneNumber
     char _owner[MAX_NAME_LENGTH];
     Date _createdAt;
     char _number[MAX_PHONE_NUMBER_LENGTH];
-    bool _paidType; // true => pre-paid, false => postpaid
+    int _paidType; // 0 => pre-paid, 1 => postpaid
     int _minInNetwork;
     int _minOutNetwork;
 };
@@ -96,6 +96,8 @@ void fillArrayPhoneNumbers(int &quantity, PhoneNumber arr[]);
 void printArrayPhoneNumbers(int quantity, PhoneNumber arr[]);
 void addNewPhoneNumber(int &quantity, PhoneNumber arr[]);
 void sortArray(int quantity, PhoneNumber arr[]);
+void findWithName(int quantity, PhoneNumber arr[]);
+void exportPhoneNumberWithPaidType(int quantity, PhoneNumber arr[]);
 
 /* END DECLARE FUNCTIONS HANDLE */
 
@@ -110,7 +112,8 @@ void solve()
     printArrayPhoneNumbers(quantity, arr);
     addNewPhoneNumber(quantity, arr);
     sortArray(quantity, arr);
-
+    findWithName(quantity, arr);
+    exportPhoneNumberWithPaidType(quantity, arr);
     return;
 }
 /* END SOLVE */
@@ -185,6 +188,8 @@ void fillAPhoneNumber(PhoneNumber &obj)
     scanf("%d", &obj._minInNetwork);
     printf("Nhap thoi gian goi ngoai mang: ");
     scanf("%d", &obj._minOutNetwork);
+    printf("Nhap loai thue bao (0: Tra truoc - 1: Tra sau): ");
+    scanf("%d", &obj._paidType);
 }
 void printAPhoneNumber(PhoneNumber obj)
 {
@@ -195,6 +200,15 @@ void printAPhoneNumber(PhoneNumber obj)
     printf("\nSo dien thoai: %s", obj._number);
     printf("\nThoi gian goi noi mang: %d", obj._minInNetwork);
     printf("\nThoi gian goi ngoai mang: %d", obj._minOutNetwork);
+    printf("\nLoai thue bao: ");
+    if (obj._paidType == 0)
+    {
+        printf("Tra truoc");
+    }
+    else
+    {
+        printf("Tra sau");
+    }
 }
 
 void fillArrayPhoneNumbers(int &quantity, PhoneNumber arr[])
@@ -232,6 +246,35 @@ void sortArray(int quantity, PhoneNumber arr[])
     printArrayPhoneNumbers(quantity, arr);
 }
 
+void findWithName(int quantity, PhoneNumber arr[])
+{
+    char name[MAX_NAME_LENGTH];
+    cin.ignore();
+    cin.getline(name, MAX_NAME_LENGTH);
+    printf("\nThong tin thue bao tim thay: ");
+    for (int i = 0; i < quantity; i++)
+    {
+        if (strcmp(name, arr[i]._owner) == 0)
+        {
+            printAPhoneNumber(arr[i]);
+        }
+    }
+}
+
+void exportPhoneNumberWithPaidType(int quantity, PhoneNumber arr[])
+{
+    int type;
+    scanf("%d", &type);
+    printf("\nThong tin thue bao tim thay: ");
+    for (int i = 0; i < quantity; i++)
+    {
+        if (arr[i]._paidType == type)
+        {
+            printAPhoneNumber(arr[i]);
+        }
+    }
+}
+
 /* END FUNTIONS HANDLE */
 
 /* ---------- | ---------- | ---------- */
@@ -251,36 +294,49 @@ void sortArray(int quantity, PhoneNumber arr[])
 //////////////////////////////
 
 5
-1
-Nguyen Van A
-1 1 2020
-0999000001
-100
-1000
 2
 Nguyen Van B
 2 2 2020
 0999000002
 200
 2000
+0
+1
+Nguyen Van A
+1 1 2020
+0999000001
+100
+1000
+1
 3
 Nguyen Van C
 3 3 2020
 0999000003
 300
 3000
-4
-Nguyen Van D
-4 4 2020
-0999000004
-400
-4000
+0
 5
 Nguyen Van E
 5 5 2020
 0999000005
 500
 5000
+4
+1
+Nguyen Van D
+4 4 2020
+0999000004
+400
+4000
+1
+6
+Nguyen Van F
+6 6 2020
+0999000006
+600
+6000
+1
+Nguyen Van A
 
 //////////////////////////////
 */
