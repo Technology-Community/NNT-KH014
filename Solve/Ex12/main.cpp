@@ -1,4 +1,4 @@
-/* Ex1 - Page 23 - 07.jpg */
+/* Ex2 - Page 24 - 08.jpg */
 /*
     Descriptions
 */
@@ -34,6 +34,7 @@ Author's infomations:
 
 /** Macro definitions for maximum length of variables */
 #define MAX_ARRAY 100
+
 /* END DEFINITIONS */
 
 /* ---------- | ---------- | ---------- */
@@ -67,9 +68,9 @@ using namespace std;
 /* ---------- | ---------- | ---------- */
 /* DECLARE FUNCTIONS HANDLE*/
 /*** Code at "DECLARE FUNCTION HANDLE BLOCK" ***/
-void fillArray(int &quantity, int *arr);
-void printArray(int quantity, int *arr);
-void sumArray(int quantity, int *arr);
+void fillMatrix(int &row, int &col, int **arr);
+void printMatrix(int row, int col, int **arr);
+void sumMatrix(int row, int col, int **arr);
 
 /* END DECLARE FUNCTIONS HANDLE */
 
@@ -78,13 +79,22 @@ void sumArray(int quantity, int *arr);
 /* SOLVE */
 void solve()
 {
-    int quantity;
-    int *arr = new int[MAX_ARRAY];
+    int row, col;
+    int **arr = new int *[MAX_ARRAY];
+    for (int i = 0; i < MAX_ARRAY; i++)
+    {
+        arr[i] = new int[MAX_ARRAY];
+    }
 
-    fillArray(quantity, arr);
-    printArray(quantity, arr);
-    sumArray(quantity, arr);
+    fillMatrix(row, col, arr);
+    printMatrix(row, col, arr);
+    sumMatrix(row, col, arr);
 
+    for (int i = 0; i < MAX_ARRAY; i++)
+    {
+        delete[] arr[i];
+    }
+    delete[] arr;
     return;
 }
 /* END SOLVE */
@@ -110,35 +120,48 @@ int main()
 
 /* FUNCTIONS HELPER */
 /*** Declare at "DECLARE FUNCTION HELPER BLOCK" ***/
-void fillArray(int &quantity, int *arr)
+void fillMatrix(int &row, int &col, int **arr)
 {
-    printf("Nhap so luong: ");
-    scanf("%d", &quantity);
-    for (int i = 0; i < quantity; i++)
+    printf("Nhap so dong: ");
+    scanf("%d", &row);
+    printf("Nhap so cot: ");
+    scanf("%d", &col);
+
+    for (int i = 0; i < row; i++)
     {
-        printf("Nhap arr[%d]: ", i);
-        scanf("%d", (arr + i));
-        // scanf("%d", &arr[i]);
+        for (int j = 0; j < col; j++)
+        {
+            printf("Nhap arr[%d][%d]: ", i, j);
+            int temp;
+            scanf("%d", &temp);
+            arr[i][j] = temp;
+        }
+    }
+}
+void printMatrix(int row, int col, int **arr)
+{
+    printf("\nMa tran = \n");
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            printf("%d\t", arr[i][j]);
+        }
+        printf("\n");
     }
 }
 
-void printArray(int quantity, int *arr)
-{
-    printf("\nMang vua nhap: ");
-    for (int i = 0; i < quantity; i++)
-    {
-        printf("\t%d", *(arr + i));
-    }
-}
-
-void sumArray(int quantity, int *arr)
+void sumMatrix(int row, int col, int **arr)
 {
     int sum = 0;
-    for (int i = 0; i < quantity; i++)
+    for (int i = 0; i < row; i++)
     {
-        sum += *(arr + i);
+        for (int j = 0; j < col; j++)
+        {
+            sum += arr[i][j];
+        }
     }
-    printf("\nTong mang vua nhap: %d", sum);
+    printf("\nTong ma tran = %d", sum);
 }
 /* END FUNTIONS HELPER */
 /*
@@ -146,8 +169,10 @@ void sumArray(int quantity, int *arr)
 /////		Input		//////
 //////////////////////////////
 
-3
-1 2 3
+3 4
+1 2 3 4
+5 6 7 8
+9 10 11 12
 
 //////////////////////////////
 */
