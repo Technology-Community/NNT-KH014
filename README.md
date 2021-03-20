@@ -18,8 +18,8 @@ Coded by [KingNNT](https://www.facebook.com/Kinggg.NNT)
 ```
 - Project
   - Deadline: Day / Month / Year
-  - Đã gửi: 8 /
-  - Đã hoàn thành: 8 /
+  - Đã gửi: 12 /
+  - Đã hoàn thành: 12 /
 - Đã thanh toán: 2.000.000 /  VND
 ```
 
