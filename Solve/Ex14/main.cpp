@@ -1,4 +1,4 @@
-/* Ex3 - Page 26 - 09.jpg */
+/*  Ex4 - Page 26 - 09.jpg */
 /*
     Descriptions
 */
@@ -57,14 +57,15 @@ using namespace std;
 /* DECLARE STRUCT */
 
 /* END DECLARE STRUCT */
-/* ---------- | ---------- | ---------- */
 
 /* ---------- | ---------- | ---------- */
 /* DECLARE TYPEDEF */
 
 /* END DECLARE TYPEDEF */
+
 /* ---------- | ---------- | ---------- */
 
+/* ---------- | ---------- | ---------- */
 /* DECLARE FUNCTIONS HANDLE*/
 /*** Code at "DECLARE FUNCTION HANDLE BLOCK" ***/
 
@@ -75,38 +76,21 @@ using namespace std;
 /* SOLVE */
 void solve()
 {
-    char s1[MAX_CHAR_LENGTH], s2[MAX_CHAR_LENGTH];
-    cin.getline(s1, MAX_CHAR_LENGTH);
-    cin.getline(s2, MAX_CHAR_LENGTH);
-    printf("%s", s1);
-    printf("\n%s", s2);
-    printf("\nDo dai chuoi s1 = %d", strlen(s1));
-    printf("\nDo dai chuoi s2 = %d", strlen(s2));
-    if (strcmp(s1, s2) == 0)
+    char str[MAX_CHAR_LENGTH];
+    cin.getline(str, MAX_CHAR_LENGTH);
+    str[0] = toupper(str[0]);
+    for (int i = 1; i < strlen(str); i++)
     {
-        printf("\n2 chuoi giong nhau");
+        if (str[i - 1] == 32)
+        {
+            str[i] = toupper(str[i]);
+        }
+        else
+        {
+            str[i] = tolower(str[i]);
+        }
     }
-    else
-    {
-        printf("\n2 chuoi khac nhau");
-    }
-    if (strstr(s1, s2) != NULL)
-    {
-        printf("\ns2 co nam trong s1");
-    }
-    else
-    {
-        printf("\ns2 khong nam trong s1");
-    }
-    if (strstr(s2, s1) != NULL)
-    {
-        printf("\ns1 co nam trong s2");
-    }
-    else
-    {
-        printf("\ns1 khong nam trong s2");
-    }
-    printf("\nNoi 2 chuoi: %s", strcat(s1, s2));
+    printf("%s", str);
     return;
 }
 /* END SOLVE */
@@ -139,8 +123,7 @@ int main()
 /////		Input		//////
 //////////////////////////////
 
-Nguyen Van A
-slug
+ngUyen vAn a
 
 //////////////////////////////
 */
