@@ -17,8 +17,10 @@ using namespace std;
 void solve()
 {
     char s1[MAX_CHAR_LENGTH], s2[MAX_CHAR_LENGTH];
-    cin.getline(s1, MAX_CHAR_LENGTH);
-    cin.getline(s2, MAX_CHAR_LENGTH);
+    // cin.getline(s1, MAX_CHAR_LENGTH);
+    gets(s1);
+    // cin.getline(s2, MAX_CHAR_LENGTH);
+    gets(s2);
     printf("%s", s1);
     printf("\n%s", s2);
     printf("\nDo dai chuoi s1 = %d", strlen(s1));

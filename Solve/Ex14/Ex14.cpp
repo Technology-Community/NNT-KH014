@@ -22,7 +22,8 @@ using namespace std;
 void solve()
 {
     char str[MAX_CHAR_LENGTH];
-    cin.getline(str, MAX_CHAR_LENGTH);
+    // cin.getline(str, MAX_CHAR_LENGTH);
+    gets(str);
     str[0] = toupper(str[0]);
     for (int i = 1; i < strlen(str); i++)
     {
