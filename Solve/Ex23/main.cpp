@@ -1,4 +1,4 @@
-/*  Ex2 - Page 34 -  12.jpg */
+/* Ex4 - Page 36 - 13.jpg */
 /*
     Descriptions
 */
@@ -28,7 +28,10 @@ Author's informations:
 /* DEFINITIONS */
 /** Define path file for input and output */
 #define pathio "/mnt/LearningAndWorking/Develop/C-CPP/GNU-Compiler/In-Out/"
-#define lf pathio "file.txt", "r+"
+// #define pathio "E:/Develop/C-CPP/GNU-Compiler/In-Out/"
+#define lfi pathio "input.txt", "r", stdin
+// #define lfo pathio "output.txt", "w", stdout
+#define lf pathio "file.txt", "w"
 
 /** Macro definitions for maximum length of variables */
 #define MAX_ARRAY 100
@@ -41,34 +44,37 @@ using namespace std;
 
 /* ---------- | ---------- | ---------- | ---------- | ---------- */
 
-/* DECLARE FUNCTIONS HELPER */
-/*** Code at "DECLARE FUNCTION HELPER BLOCK" ***/
-
-/* END DECLARE FUNCTIONS HELPER */
-int random(int minN, int maxN);
-/* ---------- | ---------- | ---------- */
 /* DECLARE CLASS */
 
 /* END DECLARE CLASS */
 
 /* ---------- | ---------- | ---------- */
 /* DECLARE STRUCT */
-
+struct Product
+{
+    int _id;
+    int _quantity;
+    float _price;
+    float _total;
+};
 /* END DECLARE STRUCT */
 
 /* ---------- | ---------- | ---------- */
 /* DECLARE TYPEDEF */
-
+typedef struct Product Product;
 /* END DECLARE TYPEDEF */
 
 /* ---------- | ---------- | ---------- */
+/* DECLARE FUNCTIONS HELPER */
+/*** Code at "DECLARE FUNCTION HELPER BLOCK" ***/
+
+/* END DECLARE FUNCTIONS HELPER */
 
 /* ---------- | ---------- | ---------- */
 /* DECLARE FUNCTIONS HANDLE*/
 /*** Code at "DECLARE FUNCTION HANDLE BLOCK" ***/
-void genMatrix(int arr[MAX_ARRAY][MAX_ARRAY], int row, int col);
-void saveFile(FILE *ptr, int arr[MAX_ARRAY][MAX_ARRAY], int row, int col);
-void readFile(FILE *ptr, int arr[MAX_ARRAY][MAX_ARRAY], int row, int col);
+void fillArrayProduct(Product arr[], int &n, FILE *ptr);
+void printArrayProduct(Product arr[], int n);
 
 /* END DECLARE FUNCTIONS HANDLE */
 
@@ -77,13 +83,11 @@ void readFile(FILE *ptr, int arr[MAX_ARRAY][MAX_ARRAY], int row, int col);
 /* SOLVE */
 void solve(FILE *ptr)
 {
-    int row = 6;
-    int col = 5;
-    int arr[MAX_ARRAY][MAX_ARRAY];
-    int arr2[MAX_ARRAY][MAX_ARRAY];
-    genMatrix(arr, row, col);
-    saveFile(ptr, arr, row, col);
-    readFile(ptr, arr2, row, col);
+    int n;
+    Product arr[MAX_ARRAY];
+    fillArrayProduct(arr, n, ptr);
+    printf("\n");
+    printArrayProduct(arr, n);
     return;
 }
 /* END SOLVE */
@@ -92,13 +96,15 @@ void solve(FILE *ptr)
 /* MAIN */
 int main()
 {
+    freopen(lfi);
+    // freopen(lfo);
     FILE *ptr = fopen(lf);
     // ios_base :: sync_with_stdio (0);
     cin.tie(0);
 
     if (ptr == NULL)
     {
-        printf("Khong tao duoc file");
+        printf("Khong The Mo File");
     }
     else
     {
@@ -116,56 +122,63 @@ int main()
 
 /* FUNCTIONS HELPER */
 /*** Declare at "DECLARE FUNCTION HELPER BLOCK" ***/
-int random(int minN, int maxN)
+
+/* END FUNTIONS HELPER */
+
+/* ---------- | ---------- | ---------- */
+/* FUNCTIONS HANDLE */
+/*** Declare at "DECLARE FUNCTION HANDLE BLOCK" ***/
+void fillAProduct(Product &obj, FILE *ptr)
 {
-    return minN + rand() % (maxN + 1 - minN);
+    printf("Nhap Ma Hang: ");
+    scanf("%d", &obj._id);
+    fprintf(ptr, "\n%d", obj._id);
+    printf("Nhap So Luong: ");
+    scanf("%d", &obj._quantity);
+    fprintf(ptr, "\t%d", obj._quantity);
+    printf("Nhap Don Gia: ");
+    scanf("%f", &obj._price);
+    fprintf(ptr, "\t%.2f", obj._price);
+    obj._total = obj._quantity * obj._price;
 }
 
-void genMatrix(int arr[MAX_ARRAY][MAX_ARRAY], int row, int col)
+void printAProduct(Product &obj)
 {
-    srand((int)time(0));
-    for (int i = 0; i < row; i++)
+    printf("\nMa Hang = %d", obj._id);
+    printf("\nSo Luong = %d", obj._quantity);
+    printf("\nDon Gia = %.2f", obj._price);
+    printf("\nSo Tien = %.2f", obj._total);
+}
+
+void fillArrayProduct(Product arr[], int &n, FILE *ptr)
+{
+    printf("Nhap So Luong Don Hang: ");
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < col; j++)
-        {
-            int temp = random(1, 100);
-            arr[i][j] = temp;
-        }
+        fillAProduct(arr[i], ptr);
     }
 }
 
-void saveFile(FILE *ptr, int arr[MAX_ARRAY][MAX_ARRAY], int row, int col)
+void printArrayProduct(Product arr[], int n)
 {
-    fprintf(ptr, "%d %d\n", row, col);
-    for (int i = 0; i < row; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < col; j++)
-        {
-            fprintf(ptr, "%d\t", arr[i][j]);
-        }
-        fprintf(ptr, "\n");
-    }
-}
-
-void readFile(FILE *ptr, int arr[MAX_ARRAY][MAX_ARRAY], int row, int col)
-{
-    rewind(ptr);
-    fscanf(ptr, "%d %d", &row, &col);
-    for (int i = 0; i < row; i++)
-    {
-        for (int j = 0; j < col; j++)
-        {
-            fscanf(ptr, "%d", &arr[i][j]);
-        }
-    }
-
-    for (int i = 0; i < row; i++)
-    {
-        for (int j = 0; j < col; j++)
-        {
-            printf("%d\t", arr[i][j]);
-        }
+        printAProduct(arr[i]);
         printf("\n");
     }
 }
-/* END FUNTIONS HELPER */
+/* END FUNTIONS HANDLE */
+/*
+//////////////////////////////
+/////		Input		//////
+//////////////////////////////
+
+4
+1 1 1
+2 2 2
+3 3 3
+4 4 4
+
+//////////////////////////////
+*/
